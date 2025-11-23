@@ -1,0 +1,12 @@
+{
+  "app_config": {
+    "app_port": 9001,
+    "api_service_dtl": {
+      "host": "http://localhost:9001",
+      "api_timeout": 240000
+    },
+    "db_services_dtl": {
+      "mongodb_uri": "mongodb+srv://rkstudiobsr01_db_user:6YfxBvy12S9BrBtk@voice-owl-cluster.2dmo0yo.mongodb.net/?appName=voice-owl-cluster"
+    }
+  }
+}
