@@ -66,11 +66,11 @@ export const createTranscription = async (req, res) => {
 // Fetch transcriptions with pagination & filtering
 export const getAllTranscriptions = async (req, res) => {
 	try {
-		const { page = 1, limit = 5, search = "", startDate, endDate } = req.query;
+		const { page = 1, limit = 500, search = "", startDate, endDate } = req.query;
 
 		const query = {};
 
-		// 🔍 Keyword search in transcription text
+		//  Keyword search in transcription text
 		if (search) {
 			query.transcriptionText = { $regex: search, $options: 'i' };
 		}

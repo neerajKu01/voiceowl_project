@@ -43,9 +43,10 @@
 		"version": "0.2.0",
 		"compounds": [
 			{
-				"name": "backend",
+				"name": "voiceOwl",
 				"configurations": [
 					"API",
+					"UI",
 				],
 				"stopAll": true
 			}
@@ -62,7 +63,25 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\src\\server.js",
-			"cwd": "${workspaceFolder}",
+			"cwd": "${workspaceFolder}\\backend",
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "UI",
+            "restart": true,
+            "runtimeExecutable": "npm",
+			"runtimeArgs": [
+					"dev"
+				],
+            "console": "integratedTerminal", // externalTerminal or integratedTerminal respectively. The default is internalConsole.
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\frontend\\server.js",
+			"cwd": "${workspaceFolder}\\frontend",
+			"autoAttachChildProcesses": true,
+			"stopOnEntry": true,
         }
     ]
 	}

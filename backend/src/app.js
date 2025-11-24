@@ -4,7 +4,9 @@ import transcriptionRoutes from './routes/transcription.routes.js';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+	origin: process.env.CORS_ORIGIN || "*",
+}));
 
 // Body parser, reading data from body into req.body
 app.use(
