@@ -5,7 +5,8 @@ import {
 	getAllTranscriptions,
 	uploadAndTranscribe,
 	getTranscriptionById,
-	deleteTranscription
+	deleteTranscription,
+	getAudioFile
 } from '../controllers/transcription.controller.js';
 
 const router = express.Router();
@@ -16,5 +17,5 @@ router.post("/upload-audio", upload.single("audioFile"), uploadAndTranscribe);
 // NEW - Fetch transcription by ID
 router.get('/get-transcription-by-id', getTranscriptionById);
 router.get('/delete-transcript', deleteTranscription);
-
+router.get("/getAudioFile", getAudioFile);
 export default router;

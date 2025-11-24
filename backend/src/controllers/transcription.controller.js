@@ -224,6 +224,26 @@ export const deleteTranscription = async (req, res) => {
 	}
 };
 
+export const getAudioFile = async (req, res) => {
+	try {
+		const { id } = req.query;
+		const record = await Transcription.findById(id);
+
+		if (!record) {
+			return res.status(404).json({ message: "File not found!" });
+		}
+
+		return res.status(200).json({
+			success: true,
+			audioUrl: record.audioUrl, // Cloudinary file URL
+			downloadUrl: record.audioUrl, // same for download
+		});
+	} catch (error) {
+		res.status(500).json({ success: false, message: error.message });
+	}
+};
+
+
 // -------- Mock AI Transcription Function -------- //
 const mockAITranscription = (filePath) => {
 	return new Promise((resolve) => {
