@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+th, td {
+  border: 1px solid black !important; /* Sets a solid black border for all cells */
+  padding: 8px;
+  text-align: left;
+}
