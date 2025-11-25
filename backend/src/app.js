@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import transcriptionRoutes from './routes/transcription.routes.js';
+import azureRoutes from "./routes/azure.routes.js";
 
 const app = express();
 
@@ -33,5 +34,6 @@ app.use('/api/transcriptions', transcriptionRoutes);
 
 // Serve uploaded files publicly (so frontend can access audio)
 app.use('/uploads', express.static('uploads'));
+app.use("/api/azure-transcription", azureRoutes);
 
 export default app;
