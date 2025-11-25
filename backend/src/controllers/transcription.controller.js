@@ -242,3 +242,15 @@ export const getAudioFile = async (req, res) => {
 		res.status(500).json({ success: false, message: error.message });
 	}
 };
+
+
+// -------- Mock AI Transcription Function -------- //
+const mockAITranscription = (filePath) => {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve(
+				`Mock Transcription: This audio (${path.basename(filePath)}) contains a sample conversation about VoiceOwl.`
+			);
+		}, 2000); // Simulating AI processing delay
+	});
+};
